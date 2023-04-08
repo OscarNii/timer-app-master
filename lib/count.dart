@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:animate_do/animate_do.dart';
 import 'package:count_app/round.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -66,7 +67,7 @@ class _CountdownPageState extends State<CountdownPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xfff5fbff),
+      backgroundColor: Colors.transparent,
       body: Stack(
         children: [
           ShaderMask(
@@ -96,13 +97,15 @@ class _CountdownPageState extends State<CountdownPage>
           child: Stack(
             alignment: Alignment.center,
             children: [
-              Container(
-                width: 300,
-                height: 300,
-                child: CircularProgressIndicator(
-                  backgroundColor: Colors.grey.shade300,
-                  value: progress,
-                  strokeWidth: 6,
+              FadeInDownBig(
+                child: Container(
+                  width: 300,
+                  height: 300,
+                  child: CircularProgressIndicator(
+                    backgroundColor: Colors.red,
+                    value: progress,
+                    strokeWidth: 6,
+                  ),
                 ),
               ),
               GestureDetector(
